@@ -1,4 +1,4 @@
-package com.jia.algorithm.class02;
+package com.jia.algorithm.class01;
 
 /**
  * @author wugongzi

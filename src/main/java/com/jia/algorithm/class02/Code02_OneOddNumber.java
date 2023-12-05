@@ -1,4 +1,4 @@
-package com.jia.algorithm.class03;
+package com.jia.algorithm.class02;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,35 +1,13 @@
-package com.jia.algorithm.class02;
+package com.jia.algorithm.class01;
 
 import java.util.Arrays;
 
 /**
  * @author wugongzi
- * @description 选择排序
- * @date 2023-11-16 14:30
+ * @description 对数器
+ * @date 2023-11-16 14:44
  */
-public class Code01_SelectionSort {
-
-    // 0 ~ N-1  找到最小值，在哪，放到0位置上
-    // 1 ~ n-1  找到最小值，在哪，放到1 位置上
-    // 2 ~ n-1  找到最小值，在哪，放到2 位置上
-    public static void selectionSort(int[] arr) {
-        if (arr == null || arr.length < 2) {
-            return;
-        }
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[i]) {
-                    swap(arr, i, j);
-                }
-            }
-        }
-    }
-
-    public static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
+public class Code_CheckCode {
 
     public static void comparator(int[] arr) {
         Arrays.sort(arr);
@@ -85,6 +63,27 @@ public class Code01_SelectionSort {
         }
         System.out.println();
     }
+
+    public static void bubbleSort(int[] arr) {
+        if (null == arr || arr.length < 2) {
+            return;
+        }
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (arr[j-1] > arr[j]) {
+                    swap(arr, j, j - 1);
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
     public static void main(String[] args) {
         int testTime = 500000;
         int maxSize = 100;
@@ -93,7 +92,7 @@ public class Code01_SelectionSort {
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            selectionSort(arr1);
+            bubbleSort(arr1);
             comparator(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
@@ -103,6 +102,11 @@ public class Code01_SelectionSort {
             }
         }
         System.out.println(succeed ? "Nice!" : "Fucking fucked!");
+
+        /*int[] arr = generateRandomArray(maxSize, maxValue);
+        printArray(arr);
+        // TODO
+        printArray(arr);*/
     }
 
 }

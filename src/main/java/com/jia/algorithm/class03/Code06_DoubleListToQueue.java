@@ -1,11 +1,11 @@
-package com.jia.algorithm.class04;
+package com.jia.algorithm.class03;
 
 /**
  * @author wugongzi
- * @description 双链表实现栈
- * @date 2023-11-28 14:39
+ * @description 双链表实现队列
+ * @date 2023-11-28 15:19
  */
-public class Code05_DoubleListToStack {
+public class Code06_DoubleListToQueue {
 
     public static class DoubleNode {
         public int value;
@@ -24,47 +24,47 @@ public class Code05_DoubleListToStack {
         return head == null;
     }
 
-    public static void push(int value) {
+    public static void inQueue(int value) {
         DoubleNode node = new DoubleNode(value);
-        if (head == null) {
+        if (isEmpty()) {
             head = node;
+            tail = node;
         } else {
-            // 头插法
-            node.next = head;
-            head.pre = node;
-            head = node;
+            tail.next = node;
+            node.pre = tail;
+            tail = node;
         }
     }
 
-    public static Integer pop() {
+    public static Integer outQueue() {
         if (isEmpty()) {
-            System.out.println("栈空了");
+            System.out.println("队列已经空了");
             return null;
         }
         int value = head.value;
+        System.out.println("出队的值：" + value);
         head = head.next;
         if (head != null) {
             head.pre = null;
+        } else {
+            tail = null;
         }
-        System.out.println(value);
         return value;
     }
 
-
     public static void main(String[] args) {
-        push(1);
-        push(2);
-        push(3);
-        push(4);
-        push(5);
-        push(6);
-        pop();
-        pop();
-        pop();
-        pop();
-        pop();
-        pop();
-        pop();
+        inQueue(1);
+        inQueue(2);
+        inQueue(3);
+        inQueue(4);
+        inQueue(5);
+        outQueue();
+        outQueue();
+        outQueue();
+        outQueue();
+        outQueue();
+        outQueue();
     }
+
 
 }
