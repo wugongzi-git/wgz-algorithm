@@ -5,6 +5,7 @@ import java.util.Arrays;
 /**
  * @author wugongzi
  * @description 选择排序
+ * 选择排序不稳定
  * @date 2023-11-16 14:30
  */
 public class Code01_SelectionSort {
