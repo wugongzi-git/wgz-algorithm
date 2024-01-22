@@ -1,7 +1,7 @@
 package com.jia.algorithm.class10;
 
 /**
- * 遍历二叉树
+ * 递归遍历二叉树
  */
 public class Code02_RecursiveTraversalBT {
 
