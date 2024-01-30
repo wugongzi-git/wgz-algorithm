@@ -3,7 +3,7 @@ package com.jia.algorithm.class12;
 import java.util.ArrayList;
 
 /**
- * 是否平衡二叉树
+ * 是否搜索二叉树
  */
 public class Code02_IsBST {
 
@@ -52,9 +52,9 @@ public class Code02_IsBST {
     }
 
     /**
-     * 平衡二叉树需要找的信息
-     * - X 的左子树是否平
-     * - X 的右子树是否平
+     * 搜索二叉树需要找的信息
+     * - X 的左子树是否 BST
+     * - X 的右子树是否 BST
      * - X 左右子树的高度
      */
     public static class Info {
