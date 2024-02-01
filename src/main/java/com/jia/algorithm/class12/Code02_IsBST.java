@@ -31,7 +31,7 @@ public class Code02_IsBST {
         return true;
     }
 
-    // 中序遍历二叉树，二叉树的值存入 ArrayList 中，二叉树中的值是按升序排列
+    // 中序遍历搜索二叉树，二叉树的值存入 ArrayList 中，二叉树中的值是按升序排列
     public static void in(Node head, ArrayList<Node> arr) {
         if (head == null) {
             return;
@@ -55,7 +55,7 @@ public class Code02_IsBST {
      * 搜索二叉树需要找的信息
      * - X 的左子树是否 BST
      * - X 的右子树是否 BST
-     * - X 左右子树的高度
+     * - X 左右子树的最大值和最小值
      */
     public static class Info {
         public boolean isBST;
@@ -77,7 +77,7 @@ public class Code02_IsBST {
         Info leftInfo = process(x.left);
         // 拿到右子树的信息
         Info rightInfo = process(x.right);
-        // 找最大值，最大值可能是左子树，也可能是右子树，因为右子树可能为 null
+        // 找到最大值
         int max = x.value;
         if (leftInfo != null) {
             max = Math.max(max, leftInfo.max);
@@ -99,6 +99,7 @@ public class Code02_IsBST {
         if (rightInfo != null && !rightInfo.isBST) {
             isBST = false;
         }
+        // 搜索二叉树，左子树所有值比头节点小，右子树所有值比头节点大
         if (leftInfo != null && leftInfo.max >= x.value) {
             isBST = false;
         }
