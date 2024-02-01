@@ -47,6 +47,12 @@ public class Code01_IsCBT {
         return true;
     }
 
+    public static boolean isCBT2(Node head) {
+        return true;
+    }
+
+
+
 
 
 
